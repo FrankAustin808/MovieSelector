@@ -42,7 +42,7 @@ namespace MovieSelector
             name: "Movie Selector",
             ownerid: ":p",
             secret: ":p",
-            version: "0.0.8"
+            version: "0.1.0"
         );
 
         static string random_string()
