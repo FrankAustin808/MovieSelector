@@ -19,13 +19,13 @@ namespace MovieSelector
 {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
-        string Fmovies = "https://fmovies2.pro/search.html?keyword=";
+        string Fmovies = "";
 
-        string Flixtor = "https://flixtor.se/show/search/";
+        string Flixtor = "";
 
-        string FlixtorEnd = @"/from/1800/to/2099/rating/0/votes/0/language/all/type/all/genre/all/relevance/page/1";
+        string FlixtorEnd = @"";
 
-        string M4ufree = "https://ww1.m4ufree.tv/search/";
+        string M4ufree = "";
 
         string Movies = MovieSelector.Properties.Resources.Movies;
 
