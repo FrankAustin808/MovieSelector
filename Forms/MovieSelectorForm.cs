@@ -41,8 +41,8 @@ namespace MovieSelector
         public static api KeyAuthApp = new api
         (
             name: "Movie Selector",
-            ownerid: "XdBoQgG7ja",
-            secret: "14a71eaea002f0d5d965c666bc922b202d59cbafc299733cb4636ba8f9fc3a4b",
+            ownerid: "",
+            secret: "",
             version: "0.1.0"
         );
 
