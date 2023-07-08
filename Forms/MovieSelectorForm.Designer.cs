@@ -41,6 +41,8 @@
             this.helpMeBtn = new DevExpress.XtraBars.BarButtonItem();
             this.manualUpdateMe = new DevExpress.XtraBars.BarButtonItem();
             this.imOpenSource = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
+            this.livewatchToggle = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.O = new DevExpress.XtraBars.BarSubItem();
@@ -51,11 +53,14 @@
             this.clearComboBox = new DevExpress.XtraBars.BarButtonItem();
             this.barHeaderItem3 = new DevExpress.XtraBars.BarHeaderItem();
             this.pickRandomMovieBtn = new DevExpress.XtraBars.BarButtonItem();
-            this.openMovieListBtn = new DevExpress.XtraBars.BarButtonItem();
             this.barHeaderItem4 = new DevExpress.XtraBars.BarHeaderItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.toM4uFree = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.versionCaption = new DevExpress.XtraBars.BarStaticItem();
@@ -73,29 +78,19 @@
             this.barWorkspaceMenuItem1 = new DevExpress.XtraBars.BarWorkspaceMenuItem();
             this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.watchSelectedMovie = new DevExpress.XtraEditors.SimpleButton();
-            this.comboMovieBox = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.movieListBox = new DevExpress.XtraEditors.ListBoxControl();
             this.watchRandomMovieBtn = new DevExpress.XtraEditors.SimpleButton();
             this.randomSelectionText = new DevExpress.XtraEditors.TextEdit();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.serverSelectioBox = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
+            this.liveWatchBtnTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboMovieBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.movieListBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.randomSelectionText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
@@ -143,13 +138,14 @@
             this.barButtonItem7,
             this.barWorkspaceMenuItem1,
             this.imOpenSource,
-            this.openMovieListBtn,
             this.barSubItem4,
             this.barSubItem5,
             this.barSubItem6,
-            this.barSubItem7});
+            this.barSubItem7,
+            this.barSubItem8,
+            this.livewatchToggle});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 36;
+            this.barManager1.MaxItemId = 39;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemComboBox1});
@@ -178,7 +174,6 @@
             this.barSubItem1.Id = 2;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.downloadMovieList),
-            new DevExpress.XtraBars.LinkPersistInfo(this.openMovieListBtn),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.quitApplication)});
             this.barSubItem1.Name = "barSubItem1";
@@ -218,6 +213,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.helpMeBtn),
             new DevExpress.XtraBars.LinkPersistInfo(this.manualUpdateMe),
             new DevExpress.XtraBars.LinkPersistInfo(this.imOpenSource),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
             new DevExpress.XtraBars.LinkPersistInfo(this.skinBarSubItem1, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.skinPaletteDropDownButtonItem1)});
             this.barSubItem2.Name = "barSubItem2";
@@ -247,6 +243,22 @@
             this.imOpenSource.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("imOpenSource.ImageOptions.SvgImage")));
             this.imOpenSource.Name = "imOpenSource";
             this.imOpenSource.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.imOpenSource_ItemClick);
+            // 
+            // barSubItem8
+            // 
+            this.barSubItem8.Caption = "Fun Settings";
+            this.barSubItem8.Id = 36;
+            this.barSubItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem8.ImageOptions.SvgImage")));
+            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.livewatchToggle)});
+            this.barSubItem8.Name = "barSubItem8";
+            // 
+            // livewatchToggle
+            // 
+            this.livewatchToggle.Caption = "Live Watch Button";
+            this.livewatchToggle.Id = 38;
+            this.livewatchToggle.Name = "livewatchToggle";
+            this.livewatchToggle.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.livewatchToggle_CheckedChanged);
             // 
             // skinBarSubItem1
             // 
@@ -334,14 +346,6 @@
             this.pickRandomMovieBtn.Name = "pickRandomMovieBtn";
             this.pickRandomMovieBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pickRandomMovieBtn_ItemClick);
             // 
-            // openMovieListBtn
-            // 
-            this.openMovieListBtn.Caption = "Open Movie List";
-            this.openMovieListBtn.Id = 31;
-            this.openMovieListBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("openMovieListBtn.ImageOptions.SvgImage")));
-            this.openMovieListBtn.Name = "openMovieListBtn";
-            this.openMovieListBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openMovieListBtn_ItemClick);
-            // 
             // barHeaderItem4
             // 
             this.barHeaderItem4.Caption = "Movie Websites";
@@ -374,6 +378,36 @@
             this.toM4uFree.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("toM4uFree.ImageOptions.LargeImage")));
             this.toM4uFree.Name = "toM4uFree";
             this.toM4uFree.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.toM4uFree_ItemClick);
+            // 
+            // barSubItem4
+            // 
+            this.barSubItem4.Caption = "AdBlock";
+            this.barSubItem4.Id = 32;
+            this.barSubItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.Image")));
+            this.barSubItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.LargeImage")));
+            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem5),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem6),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7)});
+            this.barSubItem4.Name = "barSubItem4";
+            // 
+            // barSubItem5
+            // 
+            this.barSubItem5.Caption = "Chrome";
+            this.barSubItem5.Id = 33;
+            this.barSubItem5.Name = "barSubItem5";
+            // 
+            // barSubItem6
+            // 
+            this.barSubItem6.Caption = "Internet Explorer";
+            this.barSubItem6.Id = 34;
+            this.barSubItem6.Name = "barSubItem6";
+            // 
+            // barSubItem7
+            // 
+            this.barSubItem7.Caption = "FireFox";
+            this.barSubItem7.Id = 35;
+            this.barSubItem7.Name = "barSubItem7";
             // 
             // bar3
             // 
@@ -416,7 +450,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 278);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 482);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(472, 35);
             // 
@@ -426,7 +460,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 243);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 447);
             // 
             // barDockControlRight
             // 
@@ -434,7 +468,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(472, 35);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 243);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 447);
             // 
             // skinDropDownButtonItem1
             // 
@@ -500,76 +534,39 @@
             // 
             this.groupControl1.AutoSize = true;
             this.groupControl1.CaptionLocation = DevExpress.Utils.Locations.Top;
-            this.groupControl1.Controls.Add(this.groupControl3);
-            this.groupControl1.Controls.Add(this.groupControl2);
+            this.groupControl1.Controls.Add(this.movieListBox);
+            this.groupControl1.Controls.Add(this.watchRandomMovieBtn);
+            this.groupControl1.Controls.Add(this.randomSelectionText);
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Card;
             this.groupControl1.Location = new System.Drawing.Point(12, 113);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(449, 156);
+            this.groupControl1.Size = new System.Drawing.Size(449, 363);
             this.groupControl1.TabIndex = 4;
             // 
-            // groupControl3
+            // movieListBox
             // 
-            this.groupControl3.AutoSize = true;
-            this.groupControl3.Controls.Add(this.watchSelectedMovie);
-            this.groupControl3.Controls.Add(this.comboMovieBox);
-            this.groupControl3.Location = new System.Drawing.Point(228, 32);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(217, 119);
-            this.groupControl3.TabIndex = 3;
-            this.groupControl3.Text = "Self Selection";
-            // 
-            // watchSelectedMovie
-            // 
-            this.watchSelectedMovie.Location = new System.Drawing.Point(5, 85);
-            this.watchSelectedMovie.Name = "watchSelectedMovie";
-            this.watchSelectedMovie.Size = new System.Drawing.Size(207, 29);
-            this.watchSelectedMovie.TabIndex = 3;
-            this.watchSelectedMovie.Text = "Watch";
-            this.watchSelectedMovie.Click += new System.EventHandler(this.watchSelectedMovie_Click);
-            // 
-            // comboMovieBox
-            // 
-            this.comboMovieBox.Location = new System.Drawing.Point(5, 32);
-            this.comboMovieBox.MenuManager = this.barManager1;
-            this.comboMovieBox.Name = "comboMovieBox";
-            this.comboMovieBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboMovieBox.Properties.DropDownRows = 60;
-            this.comboMovieBox.Properties.ImmediatePopup = true;
-            this.comboMovieBox.Properties.ItemAutoHeight = true;
-            this.comboMovieBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboMovieBox.Size = new System.Drawing.Size(207, 28);
-            this.comboMovieBox.TabIndex = 0;
-            this.comboMovieBox.SelectedIndexChanged += new System.EventHandler(this.comboMovieBox_SelectedIndexChanged);
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.AutoSize = true;
-            this.groupControl2.Controls.Add(this.watchRandomMovieBtn);
-            this.groupControl2.Controls.Add(this.randomSelectionText);
-            this.groupControl2.Location = new System.Drawing.Point(5, 32);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(217, 119);
-            this.groupControl2.TabIndex = 2;
-            this.groupControl2.Text = "Random Selection";
+            this.movieListBox.Location = new System.Drawing.Point(5, 32);
+            this.movieListBox.Name = "movieListBox";
+            this.movieListBox.Size = new System.Drawing.Size(439, 257);
+            this.movieListBox.TabIndex = 3;
+            this.movieListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.movieListBox_MouseDoubleClick);
             // 
             // watchRandomMovieBtn
             // 
-            this.watchRandomMovieBtn.Location = new System.Drawing.Point(5, 85);
+            this.watchRandomMovieBtn.Location = new System.Drawing.Point(5, 329);
             this.watchRandomMovieBtn.Name = "watchRandomMovieBtn";
-            this.watchRandomMovieBtn.Size = new System.Drawing.Size(207, 29);
+            this.watchRandomMovieBtn.Size = new System.Drawing.Size(439, 29);
             this.watchRandomMovieBtn.TabIndex = 2;
             this.watchRandomMovieBtn.Text = "Watch";
             this.watchRandomMovieBtn.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // randomSelectionText
             // 
-            this.randomSelectionText.Location = new System.Drawing.Point(5, 32);
+            this.randomSelectionText.Location = new System.Drawing.Point(5, 295);
             this.randomSelectionText.MenuManager = this.barManager1;
             this.randomSelectionText.Name = "randomSelectionText";
             this.randomSelectionText.Properties.NullText = "You can type your own movie too!";
-            this.randomSelectionText.Size = new System.Drawing.Size(207, 28);
+            this.randomSelectionText.Size = new System.Drawing.Size(439, 28);
             this.randomSelectionText.TabIndex = 1;
             // 
             // groupControl4
@@ -598,42 +595,16 @@
             this.serverSelectioBox.TabIndex = 0;
             this.serverSelectioBox.SelectedIndexChanged += new System.EventHandler(this.serverSelectioBox_SelectedIndexChanged);
             // 
-            // barSubItem4
+            // liveWatchBtnTimer
             // 
-            this.barSubItem4.Caption = "AdBlock";
-            this.barSubItem4.Id = 32;
-            this.barSubItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.Image")));
-            this.barSubItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.LargeImage")));
-            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7)});
-            this.barSubItem4.Name = "barSubItem4";
-            // 
-            // barSubItem5
-            // 
-            this.barSubItem5.Caption = "Chrome";
-            this.barSubItem5.Id = 33;
-            this.barSubItem5.Name = "barSubItem5";
-            // 
-            // barSubItem6
-            // 
-            this.barSubItem6.Caption = "Internet Explorer";
-            this.barSubItem6.Id = 34;
-            this.barSubItem6.Name = "barSubItem6";
-            // 
-            // barSubItem7
-            // 
-            this.barSubItem7.Caption = "FireFox";
-            this.barSubItem7.Id = 35;
-            this.barSubItem7.Name = "barSubItem7";
+            this.liveWatchBtnTimer.Tick += new System.EventHandler(this.liveWatchBtnTimer_Tick);
             // 
             // MovieSelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(472, 313);
+            this.ClientSize = new System.Drawing.Size(472, 517);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -645,19 +616,14 @@
             this.Name = "MovieSelectorForm";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Movie Selector";
+            this.Text = " Movie Selector";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comboMovieBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.movieListBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.randomSelectionText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
@@ -686,11 +652,7 @@
         private DevExpress.XtraBars.BarButtonItem pickRandomMovieBtn;
         private DevExpress.XtraBars.BarButtonItem manualUpdateMe;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.SimpleButton watchSelectedMovie;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton watchRandomMovieBtn;
-        private DevExpress.XtraEditors.ComboBoxEdit comboMovieBox;
         private DevExpress.XtraBars.BarSubItem O;
         private DevExpress.XtraBars.BarEditItem customMovieText;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
@@ -718,12 +680,15 @@
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.ComboBoxEdit serverSelectioBox;
         private DevExpress.XtraBars.BarButtonItem imOpenSource;
-        private DevExpress.XtraBars.BarButtonItem openMovieListBtn;
         public DevExpress.XtraEditors.TextEdit randomSelectionText;
         private DevExpress.XtraBars.BarSubItem barSubItem4;
         private DevExpress.XtraBars.BarSubItem barSubItem5;
         private DevExpress.XtraBars.BarSubItem barSubItem6;
         private DevExpress.XtraBars.BarSubItem barSubItem7;
+        private DevExpress.XtraBars.BarSubItem barSubItem8;
+        private DevExpress.XtraEditors.ListBoxControl movieListBox;
+        private System.Windows.Forms.Timer liveWatchBtnTimer;
+        private DevExpress.XtraBars.BarToggleSwitchItem livewatchToggle;
     }
 }
 

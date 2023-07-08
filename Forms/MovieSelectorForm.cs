@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using KeyAuth;
-using MovieSelector.Forms;
 using MovieSelector.Properties;
 using System;
 using System.Collections.Generic;
@@ -41,8 +40,8 @@ namespace MovieSelector
         public static api KeyAuthApp = new api
         (
             name: "Movie Selector",
-            ownerid: "",
-            secret: "",
+            ownerid: "XdBoQgG7ja",
+            secret: "14a71eaea002f0d5d965c666bc922b202d59cbafc299733cb4636ba8f9fc3a4b",
             version: "0.1.0"
         );
 
@@ -112,12 +111,14 @@ namespace MovieSelector
             foreach (var line in allMovies)
             {
                 string[] tokens = line.Split('\n');
-                comboMovieBox.Properties.Items.Add(tokens[0]);
+                movieListBox.Items.Add(tokens[0]);
             }
 
             versionCaption.Caption = "Version: " + version;
 
             serverSelectioBox.EditValue = "Fmovies";
+
+            livewatchToggle.Checked = true;
         }
 
         private void getRandomMovie()
@@ -192,7 +193,7 @@ namespace MovieSelector
                     System.Diagnostics.Process.Start(Fmovies + randomSelectionText.Text.Replace(" ", "+").Replace(":", ""));
                 }
             }
-            else if (serverSelectioBox.Text == "M4ufree")
+            if (serverSelectioBox.Text == "M4ufree")
             {
                 if (randomSelectionText.Text == "" || randomSelectionText.Text == "You can type your own movie too!")
                 {
@@ -228,7 +229,7 @@ namespace MovieSelector
                     System.Diagnostics.Process.Start(M4ufree + randomSelectionText.Text.Replace(" ", "-").Replace(":", "") + ".html");
                 }
             }
-            else if (serverSelectioBox.Text == "Flixtor")
+            if (serverSelectioBox.Text == "Flixtor")
             {
                 if (randomSelectionText.Text == "" || randomSelectionText.Text == "You can type your own movie too!")
                 {
@@ -268,119 +269,12 @@ namespace MovieSelector
 
         private void watchSelectedMovie_Click(object sender, EventArgs e)
         {
-            if (serverSelectioBox.Text == "Fmovies")
-            {
-                if (comboMovieBox.Text == "" || comboMovieBox.Text == "You can type your own movie too!")
-                {
-                    XtraMessageBoxArgs args = new XtraMessageBoxArgs()
-                    {
-                        Caption = "Movie Selector",
-                        Text = $"You can't watch a movie if you do not select one :P.\n\nWould you like to select a random movie?",
-                        Buttons = new DialogResult[] { DialogResult.Yes, DialogResult.No },
-                        Icon = new Icon(@"C:\Users\env3h\Desktop\Programming Projects\Utilities\Picture Icons\ICO\film_projector_cinema_icon-icons.com_66132.ico"),
-
-                        AutoCloseOptions = new AutoCloseOptions()
-                        {
-                            // Sets the delay before the message box automatically closes.
-                            Delay = 10000,
-                            //Displays the timer on the default button.
-                            ShowTimerOnDefaultButton = true,
-                        }
-                    };
-                    if (XtraMessageBox.Show(args) == DialogResult.Yes)
-                    {
-                        comboMovieBox.Text = "";
-                        getRandomMovie();
-                    }
-                    else
-                    {
-                        comboMovieBox.Text = "";
-
-                    }
-
-                }
-                else
-                {
-                    System.Diagnostics.Process.Start(Fmovies + comboMovieBox.Text.Replace(" ", "+").Replace(":", ""));
-                }
-            }
-            else if (serverSelectioBox.Text == "M4ufree")
-            {
-                if (comboMovieBox.Text == "" || comboMovieBox.Text == "You can type your own movie too!")
-                {
-                    XtraMessageBoxArgs args = new XtraMessageBoxArgs()
-                    {
-                        Caption = "Movie Selector",
-                        Text = $"You can't watch a movie if you do not select one :P.\n\nWould you like to select a random movie?",
-                        Buttons = new DialogResult[] { DialogResult.Yes, DialogResult.No },
-                        Icon = new Icon(@"C:\Users\env3h\Desktop\Programming Projects\Utilities\Picture Icons\ICO\film_projector_cinema_icon-icons.com_66132.ico"),
-
-                        AutoCloseOptions = new AutoCloseOptions()
-                        {
-                            // Sets the delay before the message box automatically closes.
-                            Delay = 10000,
-                            //Displays the timer on the default button.
-                            ShowTimerOnDefaultButton = true,
-                        }
-                    };
-                    if (XtraMessageBox.Show(args) == DialogResult.Yes)
-                    {
-                        comboMovieBox.Text = "";
-                        getRandomMovie();
-                    }
-                    else
-                    {
-                        comboMovieBox.Text = "";
-
-                    }
-
-                }
-                else
-                {
-                    System.Diagnostics.Process.Start(M4ufree + comboMovieBox.Text.Replace(" ", "-").Replace(":", "") + ".html");
-                }
-            }
-            else if (serverSelectioBox.Text == "Flixtor")
-            {
-                if (comboMovieBox.Text == "" || comboMovieBox.Text == "You can type your own movie too!")
-                {
-                    XtraMessageBoxArgs args = new XtraMessageBoxArgs()
-                    {
-                        Caption = "Movie Selector",
-                        Text = $"You can't watch a movie if you do not select one :P.\n\nWould you like to select a random movie?",
-                        Buttons = new DialogResult[] { DialogResult.Yes, DialogResult.No },
-                        Icon = new Icon(@"C:\Users\env3h\Desktop\Programming Projects\Utilities\Picture Icons\ICO\film_projector_cinema_icon-icons.com_66132.ico"),
-
-                        AutoCloseOptions = new AutoCloseOptions()
-                        {
-                            // Sets the delay before the message box automatically closes.
-                            Delay = 10000,
-                            //Displays the timer on the default button.
-                            ShowTimerOnDefaultButton = true,
-                        }
-                    };
-                    if (XtraMessageBox.Show(args) == DialogResult.Yes)
-                    {
-                        comboMovieBox.Text = "";
-                        getRandomMovie();
-                    }
-                    else
-                    {
-                        comboMovieBox.Text = "";
-
-                    }
-
-                }
-                else
-                {
-                    System.Diagnostics.Process.Start(Flixtor + comboMovieBox.Text.Replace(" ", "%20").Replace(":", "") + FlixtorEnd);
-                }
-            }
+            
         }
 
         private void addCustomMovie_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            comboMovieBox.Properties.Items.Add(customMovieText.EditValue);
+            movieListBox.Items.Add(customMovieText.EditValue);
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 TextWriter writer = new StreamWriter(folderBrowserDialog1.SelectedPath + "Movies.txt");
@@ -413,7 +307,7 @@ namespace MovieSelector
 
         private void clearComboBox_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            comboMovieBox.Properties.Items.Clear();
+            movieListBox.Items.Clear();
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -479,13 +373,40 @@ namespace MovieSelector
 
         private void openMovieListBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MovieList list = new MovieList();
-            list.Show();
+
         }
 
         private void downloadMovieList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             // COME BACK LATER
+        }
+
+        private void liveWatchBtnTimer_Tick(object sender, EventArgs e)
+        {
+            watchRandomMovieBtn.Text = "Watch '" + randomSelectionText.Text + "' On " + serverSelectioBox.Text;
+        }
+
+        private void movieListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            randomSelectionText.Text = movieListBox.SelectedItem.ToString();
+        }
+
+        private void barToggleSwitchItem1_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void livewatchToggle_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (livewatchToggle.Checked)
+            {
+                liveWatchBtnTimer.Start();
+            }
+            else
+            {
+                liveWatchBtnTimer.Stop();
+                watchRandomMovieBtn.Text = "Watch";
+            }
         }
     }
 }
